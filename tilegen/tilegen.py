@@ -13,10 +13,6 @@ import fiona.crs as crs
 import shapely.geometry as geometry
 from proto.py.vectiles_pb2 import *
 
-import multiprocessing
-from Queue import Empty
-from multiprocessing import Process, Queue, Lock
-
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -77,7 +73,7 @@ def tilegen(file, zoom, displaysize=2048):
 		#print source.meta
 		for xtile in range(0, ntiles):
 			for ytile in range(0, ntiles):
-				#print("{z}/{x}/{y}".format(z=zoom, x=xtile, y=ytile))
+				print("{z}/{x}/{y}".format(z=zoom, x=xtile, y=ytile))
 
 				try:
 					os.makedirs("out/{z}/{x}".format(z=zoom, x=xtile))
@@ -122,49 +118,12 @@ def tilegen(file, zoom, displaysize=2048):
 					pbf.write(vectile.SerializeToString())
 					pbf64.write(base64.b64encode(vectile.SerializeToString()))
 
-
-q = Queue()
-
-# List of running threads
-workers = []
-
-
-printLock = Lock() 
-def tprint(str):
-	# aquire lock
-	printLock.acquire()
-
-	# print thread-name and message
-	print(multiprocessing.current_process().name+': '+str)
-
-	# release lock
-	printLock.release()
-
-def worker():
-	while True:
-		try:
-			task = q.get_nowait()
-			tprint(str(task))
-			tilegen(*task)
-		except Empty:
-			tprint("finished")
-			break
-
 def main():
 	for z in range(2, 6):
-		q.put(('env/ne_50m_admin_0_countries/ne_50m_admin_0_countries.shp', z, 256,))
+		tilegen('env/ne_50m_admin_0_countries/ne_50m_admin_0_countries.shp', z, 256)
 
 	for z in range(6, 9):
-		q.put(('env/ne_10m_admin_0_countries/ne_10m_admin_0_countries.shp', z, 256,))
-
-	# generate and start the threads
-	for i in range(multiprocessing.cpu_count()):
-		w = Process(target=worker)
-		w.start()
-		workers.append(w)
-
-	for process in workers:
-		process.join()
+		tilegen('env/ne_10m_admin_0_countries/ne_10m_admin_0_countries.shp', z, 256)
 
 if __name__ == "__main__":
 	main()
