@@ -1,0 +1,17 @@
+package de.pwrk.vectiles;
+
+message Vectile {
+	repeated Polygon polys = 1;
+}
+
+message Polygon {
+	repeated Tag tags = 1;
+
+	repeated sint32 delta_x = 2;
+	repeated sint32 delta_y = 3;
+}
+
+message Tag {
+	required string k = 1;
+	required string v = 2;
+}

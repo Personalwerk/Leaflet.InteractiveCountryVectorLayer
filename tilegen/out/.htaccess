@@ -1,0 +1,4 @@
+<Files *.pbf.base64>
+	SetOutputFilter DEFLATE
+	Header Set Access-Control-Allow-Origin "*"
+</Files>
