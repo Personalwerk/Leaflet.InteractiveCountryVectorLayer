@@ -50,7 +50,9 @@ L.TileLayer.Canvas.InteractiveCountryVectorLayer = L.TileLayer.Canvas.extend({
 			isDragging = false;
 		})
 
-		if(layer.options.aggregateProperty) map.on('mousemove', function(e) {
+		if(!layer.options.aggregateProperty)
+			console.warn('without an aggregateProperty hover/click will be disabled');
+		else map.on('mousemove', function(e) {
 			if(isDragging) return;
 
 			var zoom = layer._map.getZoom();
