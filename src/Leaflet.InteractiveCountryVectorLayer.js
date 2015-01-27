@@ -79,7 +79,7 @@ L.TileLayer.Canvas.InteractiveCountryVectorLayer = L.TileLayer.Canvas.extend({
 			// check if the hoverstate has changed
 			if(newHoverValue != oldHoverValue)
 			{
-				layer.fire('hoverChanged', {'new': newHoverValue, 'old': oldHoverValue});
+				layer.fire('activeChanged', {'new': newHoverValue, 'old': oldHoverValue});
 
 				// iterate tiles
 				var kArr, x, y, key;

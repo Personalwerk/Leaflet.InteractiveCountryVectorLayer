@@ -56,7 +56,7 @@
 			});
 
 			var h1 = document.getElementsByTagName('h1')[0];
-			vectileLayer.on('hoverChanged', function(e) {
+			vectileLayer.on('activeChanged', function(e) {
 				h1.innerHTML = e.new ? e.new : 'Water, my Friend';
 			}).on('featureClick', function(e) {
 				var bbox = e.feature.tags['bbox'];
