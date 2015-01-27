@@ -67,7 +67,6 @@ L.TileLayer.Canvas.InteractiveCountryVectorLayer = L.TileLayer.Canvas.extend({
 			// check if the hoverstate has changed
 			if(newHoverValue != oldHoverValue)
 			{
-				//console.log('oldHoverValue', oldHoverValue, 'newHoverValue', newHoverValue)
 				layer.fire('hoverChanged', {'new': newHoverValue, 'old': oldHoverValue});
 
 				// iterate tiles
@@ -122,7 +121,6 @@ L.TileLayer.Canvas.InteractiveCountryVectorLayer = L.TileLayer.Canvas.extend({
 			polyIdx = layer._rgbintsToInt(hitmapImageData.data[pxIdx+0], hitmapImageData.data[pxIdx+1], hitmapImageData.data[pxIdx+2]),
 			polyPlausibility = hitmapImageData.data[pxIdx+3];
 
-		//console.log('pxIdx', pxIdx, 'polyPlausibility', polyPlausibility, 'polyIdx', polyIdx);
 
 		if(255 != polyPlausibility)
 			return null;
@@ -130,7 +128,6 @@ L.TileLayer.Canvas.InteractiveCountryVectorLayer = L.TileLayer.Canvas.extend({
 		if(0 == polyIdx)
 			return null;
 
-		//console.log('over', id);
 		return this._vectileData[id].polys[polyIdx-1];
 	},
 
