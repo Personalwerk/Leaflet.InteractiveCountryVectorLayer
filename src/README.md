@@ -44,6 +44,10 @@ paint             | Function | null                                             
 
 
 ## Events
+Event             | Data                                                                              | Description
+------------------|-----------------------------------------------------------------------------------|-----------------------------------------
+activeChanged     | `{'new': [../tilegen/proto/vectiles.proto](Polygon)-Object, old: Polygon-Object}` | Called when the Active-State of a Feature changes. `new` points to a the new hovered Feature or `null`, if there the Mouse-Cursor does not point to any Polygon curently. `old` contains the Feature the Mouse-Cursor did point before or `null` if it did nor poinr any Polygon before.
+featureClick      | `{feature: Polygon-Object}`                                                       | Called when the User clicks on a Feature. `feature` points to the clicked Feature.
 
 
 ## Custom Paint-Function
