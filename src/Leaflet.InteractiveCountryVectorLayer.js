@@ -1,4 +1,4 @@
-L.PbfVectileLayer = L.TileLayer.Canvas.extend({
+L.TileLayer.Canvas.InteractiveCountryVectorLayer = L.TileLayer.Canvas.extend({
 	options: {
 		aggregateProperty: null,
 
@@ -277,6 +277,6 @@ L.PbfVectileLayer = L.TileLayer.Canvas.extend({
 	}
 });
 
-L.pbfVectileLayer = function(options) {
-	return new L.PbfVectileLayer(options);
+L.tileLayer.canvas.interactiveCountryVectorLayer = function(options) {
+	return new L.TileLayer.Canvas.InteractiveCountryVectorLayer(options);
 }

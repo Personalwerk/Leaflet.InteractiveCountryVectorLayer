@@ -29,7 +29,7 @@
 		<script src="http://libs.personalwerk.de/ByteBuffer.js/dcodeIO-ByteBuffer.js-708afa4/ByteBuffer.min.js"></script>
 		<script src="http://libs.personalwerk.de/ProtoBuf.js/dcodeIO-ProtoBuf.js-7789e55/ProtoBuf.min.js"></script>
 		<script src="http://libs.personalwerk.de/leaflet/0.7.2/leaflet.js"></script>
-		<script src="../layer/PbfVectileLayer.js"></script>
+		<script src="../src/Leaflet.InteractiveCountryVectorLayer.js"></script>
 	</head>
 	<body>
 		<div id="map"></div>
@@ -48,7 +48,7 @@
 			}
 
 			// initialize Vectile-Layer
-			var vectileLayer = L.pbfVectileLayer({
+			var vectileLayer = L.tileLayer.canvas.interactiveCountryVectorLayer({
 				noWrap: true,
 				minZoom: 2,
 				maxZoom: 9,
