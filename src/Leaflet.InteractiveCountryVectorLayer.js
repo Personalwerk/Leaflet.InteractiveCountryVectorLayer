@@ -8,8 +8,8 @@ L.TileLayer.Canvas.InteractiveCountryVectorLayer = L.TileLayer.Canvas.extend({
 		fillStyle: 'orange',
 		strokeStyle: 'black',
 
-		hoverFillStyle: 'red',
-		hoverStrokeStyle: 'black',
+		activeFillStyle: 'red',
+		activeStrokeStyle: 'black',
 
 		paint: null,
 	},
@@ -240,8 +240,8 @@ L.TileLayer.Canvas.InteractiveCountryVectorLayer = L.TileLayer.Canvas.extend({
 		}
 		else
 		{
-			ctx.fillStyle = active ? layer.options.hoverFillStyle : layer.options.fillStyle;
-			ctx.strokeStyle = active ? layer.options.hoverStrokeStyle : layer.options.strokeStyle;
+			ctx.fillStyle = active ? layer.options.activeFillStyle : layer.options.fillStyle;
+			ctx.strokeStyle = active ? layer.options.activeStrokeStyle : layer.options.strokeStyle;
 
 			ctx.fill();
 			ctx.stroke();
