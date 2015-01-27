@@ -122,8 +122,9 @@ def tilegen(file, zoom, displaysize=2048):
 						elif isinstance(clippedpoly, geometry.Polygon):
 							writePbfPoly(vectile, clippedpoly, tilebbox, displaysize, properties)
 
-					pbf.write(vectile.SerializeToString())
-					pbf64.write(base64.b64encode(vectile.SerializeToString()))
+					buf = vectile.SerializeToString()
+					pbf.write(buf)
+					pbf64.write(base64.b64encode(buf))
 
 def main():
 	for z in range(2, 6):
