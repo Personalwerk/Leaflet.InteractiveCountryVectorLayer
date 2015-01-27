@@ -70,28 +70,23 @@ L.PbfVectileLayer = L.TileLayer.Canvas.extend({
 				//console.log('oldHoverValue', oldHoverValue, 'newHoverValue', newHoverValue)
 				layer.fire('hoverChanged', {'new': newHoverValue, 'old': oldHoverValue});
 
-				// find tiles in viewport
-				var tileSize = layer._getTileSize(),
-					bounds = layer._map.getPixelBounds(),
-					tileBounds = L.bounds(
-						bounds.min.divideBy(tileSize).floor(),
-						bounds.max.divideBy(tileSize).floor());
+				// iterate tiles
+				var kArr, x, y, key;
+				for (key in layer._tiles) {
+					kArr = key.split(':');
+					x = parseInt(kArr[0], 10);
+					y = parseInt(kArr[1], 10);
 
-				// iterate those tiles
-				for (y = tileBounds.min.y; y <= tileBounds.max.y; y++) {
-					for (x = tileBounds.min.x; x <= tileBounds.max.x; x++) {
+					var id = layer._id(zoom, x, y),
+						containedValues = layer._vectileData[id] ? layer._vectileData[id].containedAggerateValues : null;
 
-						var id = layer._id(zoom, x, y),
-							containedValues = layer._vectileData[id] ? layer._vectileData[id].containedAggerateValues : null;
-
-						// check if those tiles contain the old or the new hovered poly
-						if(
-							containedValues &&
-							(containedValues.indexOf(oldHoverValue) !== -1 || containedValues.indexOf(newHoverValue) !== -1)
-						) {
-							// if yes, redraw them
-							layer._drawDispalyTile(L.point(x, y), zoom);
-						}
+					// check if those tiles contain the old or the new hovered poly
+					if(
+						containedValues &&
+						(containedValues.indexOf(oldHoverValue) !== -1 || containedValues.indexOf(newHoverValue) !== -1)
+					) {
+						// if yes, redraw them
+						layer._drawDispalyTile(L.point(x, y), zoom);
 					}
 				}
 
