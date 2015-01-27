@@ -103,9 +103,16 @@ def tilegen(file, zoom, displaysize=2048):
 
 						poly = 	geometry.shape(feature['geometry'])
 						clippedpoly = bboxpoly.intersection(poly)
+						featureProperties = {k.lower():v for k,v in feature['properties'].items()}
 
 						properties = {
-							'admin': feature['properties']['admin'] if 'admin' in feature['properties'] else feature['properties']['ADMIN'],
+							'admin': featureProperties['admin'],
+
+							'iso_a2': featureProperties['iso_a2'],
+							'iso_a3': featureProperties['iso_a3'],
+							'subunit': featureProperties['subunit'],
+							'subregion': featureProperties['subregion'],
+
 							'bbox': ','.join(map(str, poly.bounds))
 						}
 
