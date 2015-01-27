@@ -43,7 +43,16 @@ L.TileLayer.Canvas.InteractiveCountryVectorLayer = L.TileLayer.Canvas.extend({
 		var layer = this;
 		layer._map = map;
 
+		var isDragging = false;
+		map.on('dragstart', function() {
+			isDragging = true;
+		}).on('dragend', function() {
+			isDragging = false;
+		})
+
 		if(layer.options.aggregateProperty) map.on('mousemove', function(e) {
+			if(isDragging) return;
+
 			var zoom = layer._map.getZoom();
 
 			if (zoom > layer.options.maxZoom ||
