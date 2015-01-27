@@ -55,7 +55,7 @@
 
 				paint: function(ctx, active, poly, layer) {
 					ctx.fillStyle = active ? '#888' : (countryColors[poly.tags.admin] || '#FFF');
-					ctx.strokeStyle = active ? layer.options.hoverStrokeStyle : layer.options.strokeStyle;
+					ctx.strokeStyle = active ? layer.options.activeStrokeStyle : layer.options.strokeStyle;
 
 					ctx.fill();
 					ctx.stroke();
