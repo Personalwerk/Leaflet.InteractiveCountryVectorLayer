@@ -9,7 +9,9 @@ L.TileLayer.Canvas.InteractiveCountryVectorLayer = L.TileLayer.Canvas.extend({
 		strokeStyle: 'black',
 
 		hoverFillStyle: 'red',
-		hoverStrokeStyle: 'black'
+		hoverStrokeStyle: 'black',
+
+		paint: null,
 	},
 
 	initialize: function(options) {
