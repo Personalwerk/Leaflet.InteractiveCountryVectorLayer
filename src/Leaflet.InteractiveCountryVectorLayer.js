@@ -81,7 +81,7 @@ L.TileLayer.Canvas.InteractiveCountryVectorLayer = L.TileLayer.Canvas.extend({
 			// check if the hoverstate has changed
 			if(newHoverValue != oldHoverValue)
 			{
-				layer.fire('activeChanged', {'new': newHoverValue, 'old': oldHoverValue});
+				layer.fire('activeChanged', {'new': hoverFeature, 'old': layer._currentHover});
 
 				// iterate tiles
 				var kArr, x, y, key;
@@ -108,8 +108,7 @@ L.TileLayer.Canvas.InteractiveCountryVectorLayer = L.TileLayer.Canvas.extend({
 			if(!layer._currentHover) return;
 
 			layer.fire('featureClick', {
-				'feature': layer._currentHover,
-				'aggregateValue': layer._currentHover ? layer._currentHover.tags[layer.options.aggregateProperty] : null
+				'feature': layer._currentHover
 			});
 		});
 	},
