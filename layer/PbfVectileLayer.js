@@ -1,12 +1,9 @@
-// Initialize ProtoBuf.js
-var ProtoBuf = dcodeIO.ProtoBuf;
-var Vectile = ProtoBuf.loadProtoFile("http://osm.personalwerk.de/example-vectiles/proto/vectiles.proto").build("de.pwrk.vectiles.Vectile");
-
 L.PbfVectileLayer = L.TileLayer.Canvas.extend({
 	options: {
-		async: true,
-		resolutions: [],
 		aggregateProperty: null,
+
+		protoUrl: 'http://osm.personalwerk.de/example-vectiles/proto/vectiles.proto',
+		url: 'http://osm.personalwerk.de/example-vectiles/{z}/{x}/{y}.pbf.base64',
 
 		fillStyle: 'orange',
 		strokeStyle: 'black',
@@ -16,7 +13,9 @@ L.PbfVectileLayer = L.TileLayer.Canvas.extend({
 	},
 
 	initialize: function(options) {
-		L.TileLayer.Canvas.prototype.initialize.call(this, options);
+		L.TileLayer.Canvas.prototype.initialize.call(this, L.extend(options, {
+			async: true
+		}));
 
 		this._vectileData =   {};
 		this._displayCanvas = {};
@@ -24,6 +23,8 @@ L.PbfVectileLayer = L.TileLayer.Canvas.extend({
 
 		this._currentHover =  null;
 		this._map = null;
+
+		this.Vectile = dcodeIO.ProtoBuf.loadProtoFile(this.options.protoUrl).build("de.pwrk.vectiles.Vectile");
 	},
 
 	_id: function(z, x, y) {
@@ -141,11 +142,12 @@ L.PbfVectileLayer = L.TileLayer.Canvas.extend({
 	drawTile: function(canvas, tilePoint, zoom) {
 		var
 			layer = this,
-			id = layer._id(zoom, tilePoint);
+			id = layer._id(zoom, tilePoint),
+			url = L.Util.template(layer.options.url, {z: zoom, x: tilePoint.x, y: tilePoint.y});
 
-		$.get('http://osm.personalwerk.de/example-vectiles/'+id+'.pbf.base64', function(buf) {
+		$.get(url, function(buf) {
 			var
-				vectile = Vectile.decode(buf),
+				vectile = layer.Vectile.decode(buf),
 				containedAggerates = {};
 
 			$.each(vectile.polys, function(polyIdx, poly) {
