@@ -219,11 +219,25 @@ L.PbfVectileLayer = L.TileLayer.Canvas.extend({
 			layer._drawPoly(ctx, poly);
 
 			ctx.closePath();
+			layer._canvasPaintPath(ctx, active, poly.tags);
+		});
+	},
+
+	_canvasPaintPath: function(ctx, active, tags) {
+		var layer = this;
+
+		if(layer.options.paint)
+		{
+			layer.options.paint(ctx, active, tags, layer);
+		}
+		else
+		{
 			ctx.fillStyle = active ? layer.options.hoverFillStyle : layer.options.fillStyle;
 			ctx.strokeStyle = active ? layer.options.hoverStrokeStyle : layer.options.strokeStyle;
+
 			ctx.fill();
 			ctx.stroke();
-		});
+		}
 	},
 
 	_drawPoly: function(ctx, poly) {
