@@ -14,7 +14,8 @@ L.TileLayer.Canvas.InteractiveCountryVectorLayer = L.TileLayer.Canvas.extend({
 
 	initialize: function(options) {
 		L.TileLayer.Canvas.prototype.initialize.call(this, L.extend(options, {
-			async: true
+			async: true,
+			noWrap: true
 		}));
 
 		this._vectileData = {};
