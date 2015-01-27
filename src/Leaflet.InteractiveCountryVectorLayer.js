@@ -105,6 +105,8 @@ L.TileLayer.Canvas.InteractiveCountryVectorLayer = L.TileLayer.Canvas.extend({
 
 			}
 		}).on('click', function(e) {
+			if(!layer._currentHover) return;
+
 			layer.fire('featureClick', {
 				'feature': layer._currentHover,
 				'aggregateValue': layer._currentHover ? layer._currentHover.tags[layer.options.aggregateProperty] : null
