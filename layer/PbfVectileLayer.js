@@ -17,9 +17,9 @@ L.PbfVectileLayer = L.TileLayer.Canvas.extend({
 			async: true
 		}));
 
-		this._vectileData =   {};
+		this._vectileData = {};
 		this._displayCanvas = {};
-		this._hitmapImageData =  {};
+		this._hitmapImageData = {};
 
 		this._currentHover =  null;
 		this._map = null;
@@ -46,7 +46,7 @@ L.PbfVectileLayer = L.TileLayer.Canvas.extend({
 			if (zoom > layer.options.maxZoom ||
 				zoom < layer.options.minZoom) { return; }
 
-			// determine tile unter mouse
+			// determine tile under mouse
 			// check hitmap for poly unter curser
 			// check if the hoverstate has changed
 			// if yes
