@@ -1,5 +1,5 @@
 # Leaflet.InteractiveCountryVectorLayer
-An Interactive Browser-Rendered Vector-Map  based on Leaflet, that can display World-Wide Country data at 10m Resolution while still being fully interactive.
+An Interactive Browser-Rendered Vector-Map based on Leaflet, that can display World-Wide Country data at 10m Resolution while still being fully interactive.
 
 This [http://leafletjs.com/](Leaflet)-Plugin allows rendering Vector-Maps in any [http://caniuse.com/canvas](Canvas-Capable Browser). It provides a couple of useful features:
  - Realtime Hit-Detection
