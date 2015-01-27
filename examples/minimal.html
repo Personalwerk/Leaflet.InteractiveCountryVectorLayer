@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Titel</title>
+
+		<link rel="stylesheet" href="http://libs.personalwerk.de/leaflet/0.7.2/leaflet.css" />
+		<style type="text/css">
+			html, body, #map {
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+
+		<script src="http://libs.personalwerk.de/jquery/1.11.1/jquery-1.11.1.min.js"></script>
+		<script src="http://libs.personalwerk.de/ByteBuffer.js/dcodeIO-ByteBuffer.js-708afa4/ByteBuffer.min.js"></script>
+		<script src="http://libs.personalwerk.de/ProtoBuf.js/dcodeIO-ProtoBuf.js-7789e55/ProtoBuf.min.js"></script>
+		<script src="http://libs.personalwerk.de/leaflet/0.7.2/leaflet.js"></script>
+		<script src="../layer/PbfVectileLayer.js"></script>
+	</head>
+	<body>
+		<div id="map"></div>
+
+		<script type="text/javascript">
+			// initialize Vectile-Layer
+			var vectileLayer = L.pbfVectileLayer({
+				noWrap: true,
+				minZoom: 2,
+				maxZoom: 9,
+				aggregateProperty: 'admin'
+			});
+
+			// initialize the map on the "map" div with a given center and zoom
+			var map = L.map('map', {
+				center: [0, 0],
+				zoom: 2,
+				layers: [vectileLayer]
+			});
+		</script>
+	</body>
+</html>
