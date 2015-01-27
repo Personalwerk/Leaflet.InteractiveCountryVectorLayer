@@ -24,3 +24,6 @@ The Input Shapefile is splitted at Tile-Boundaries conforming to the [http://wik
  - a `.pbf.base64`-File which is a base64-encoded representation of the above `.pbf`-File. This file is what is actually transferred using AJAX, because most Browsers do not handle loading binary Data via Ajax very well. Modern Browsers allow transferring those Files gzip-compressed, which compensates for the extra Size increased by the base64-encoding.
 
 Even on fast CPUs the Script can run multiple Hours. If all you want are the standard Tiles as described above, usually downloading the [http://osm.personalwerk.de/example-vectiles/example-vectiles.zip](Pre-Generated Tiles as a Zip) is faster.
+
+## Customize Protocol-Buffer
+Without changing the [proto/vectiles.proto](`vectiles.proto`)-File you can add as many Tags as you want by modifying `tilegen.py` only. If String Key/Value tags are not enough, you can at any time use a custom `vectiles.proto` and add custom Fields to the `Polygon`-message. All client Code is transparent, as long as the existing Keys stay intact.
