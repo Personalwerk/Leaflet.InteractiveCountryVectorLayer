@@ -130,7 +130,7 @@ def main():
 	for z in range(2, 6):
 		tilegen('env/ne_50m_admin_0_countries/ne_50m_admin_0_countries.shp', z, 256)
 
-	for z in range(6, 9):
+	for z in range(6, 10):
 		tilegen('env/ne_10m_admin_0_countries/ne_10m_admin_0_countries.shp', z, 256)
 
 if __name__ == "__main__":
