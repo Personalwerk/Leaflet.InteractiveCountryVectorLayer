@@ -8,7 +8,8 @@ This [Leaflet](http://leafletjs.com/)-Plugin allows rendering Vector-Maps in any
  - Metadata on Hover/Leave-Events (like the Country-Name, Country-Code)
 
 ## Live-Example
-tbd.
+[![Live Example](examples/countrynames.png?raw=true "Click on the Image to see an interactive Example.")](http://osm.personalwerk.de/example-vectiles/example/)
+Click on the Image above to see an interactive Example.
 
 ## Generating Vector-Tiles
 To generate your own Vector-Tiles the [tilegen.py](tilegen/tilegen.py) Tool can be used. Take a look at [its README](tilegen/) to get further instructions on how to use it. It employes [Fiona](https://pypi.python.org/pypi/Fiona) to read Vectordata-Sources. Fiona is based on [GDAL/OGR](http://www.gdal.org/) and can thus read any Datasource that OGR can, including [Shapefiles](http://en.wikipedia.org/wiki/Shapefile), [SpatiaLite](http://en.wikipedia.org/wiki/SpatiaLite) Databases and probably more.

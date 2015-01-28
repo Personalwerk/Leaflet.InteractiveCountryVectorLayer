@@ -1,11 +1,5 @@
-# Leafelet-Layer Plugin
+# Examples
 
-## Requirements
- - jQuery 1.11.x - used for AJAX-Calls
- - Leaflet 0.7.x - 0.8-dev is not supported (and not stable yet)
- - dcodeIO-ByteBuffer.js
- - dcodeIO-ProtoBuf.js
-
-## Usage
-
-## Reference
+ * [minimal.html](minimal.html) - Absolute Bare-Minimal example
+ * [countrynames.html](countrynames.html) - Hover over Countries to see their Name, Click on them to fit the whole Country into the Viewport.
+ * [custom-paint.html](custom-paint.html) - A Custom Paint-Function is used to apply a different Color to some Countries
