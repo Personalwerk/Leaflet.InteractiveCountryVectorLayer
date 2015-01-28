@@ -44,10 +44,10 @@ paint             | Function | null                                             
 
 
 ## Events
-Event             | Data                                                                              | Description
-------------------|-----------------------------------------------------------------------------------|-----------------------------------------
-activeChanged     | `{'new': [Polygon](../tilegen/proto/vectiles.proto)-Object, old: Polygon-Object}` | Called when the Active-State of a Feature changes. `new` points to a the new hovered Feature or `null`, if there the Mouse-Cursor does not point to any Polygon curently. `old` contains the Feature the Mouse-Cursor did point before or `null` if it did nor poinr any Polygon before.
-featureClick      | `{feature: Polygon-Object}`                                                       | Called when the User clicks on a Feature. `feature` points to the clicked Feature.
+Event             | Event-Data | Description
+------------------|------------|-----------------------------------------
+activeChanged     | new, old   | Called when the Active-State of a Feature changes. `new` points to a the new hovered Feature or `null`, if there the Mouse-Cursor does not point to any Polygon curently. `old` contains the Feature the Mouse-Cursor did point before or `null` if it did nor point any Feature before. Both are [Polygon](../tilegen/proto/vectiles.proto)-Objects as specified in the `.proto`-File
+featureClick      | feature    | Called when the User clicks on a Feature. `feature` points to the clicked Feature.
 
 
 ## Custom Paint-Function
@@ -70,6 +70,7 @@ var vectileLayer = new L.TileLayer.Canvas.InteractiveCountryVectorLayer({
 ````
 
 The arguments it gets when called are set as follows:
+
 Argument          | Type                                                                                   | Description
 ------------------|----------------------------------------------------------------------------------------|-----------------------------------------
 ctx               | [Context2D](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D) | The Rendering-Context provided by `L.TileLayer.Canvas`. It will be exactly 256x256px in Size and represent one Tile. The Context has the Path to be displayed already pre-configured using `beginPath`/`moveTo`/`lineTo`/`closePath` and is ready to be filled, stroked, used as a clipping-path or do whatever you want to do.
