@@ -1,7 +1,7 @@
 # Leaflet.InteractiveCountryVectorLayer
 An Interactive Browser-Rendered Vector-Map based on Leaflet, that can display World-Wide Country data at 10m Resolution while still being fully interactive.
 
-This [http://leafletjs.com/](Leaflet)-Plugin allows rendering Vector-Maps in any [http://caniuse.com/canvas](Canvas-Capable Browser). It provides a couple of useful features:
+This [Leaflet](http://leafletjs.com/)-Plugin allows rendering Vector-Maps in any [Canvas-Capable Browser](http://caniuse.com/canvas). It provides a couple of useful features:
  - Realtime Hit-Detection
  - Support for High-Resolution Vectordata (10m/px)
  - Dynamicly changing Paint-Style on Hover
@@ -11,12 +11,12 @@ This [http://leafletjs.com/](Leaflet)-Plugin allows rendering Vector-Maps in any
 tbd.
 
 ## Generating Vector-Tiles
-To generate your own Vector-Tiles the [tilegen/tilegen.py](tilegen.py) Tool can be used. Take a look at [tilegen/](its README) to get further instructions on how to use it. It employes [https://pypi.python.org/pypi/Fiona](Fiona) to read Vectordata-Sources. Fiona is based on [http://www.gdal.org/](GDAL/OGR) and can thus read any Datasource that OGR can, including [http://en.wikipedia.org/wiki/Shapefile](Shapefiles), [http://en.wikipedia.org/wiki/SpatiaLite](SpatiaLite) Databases and probably more.
+To generate your own Vector-Tiles the [tilegen.py](tilegen/tilegen.py) Tool can be used. Take a look at [its README](tilegen/) to get further instructions on how to use it. It employes [Fiona](https://pypi.python.org/pypi/Fiona) to read Vectordata-Sources. Fiona is based on [GDAL/OGR](http://www.gdal.org/) and can thus read any Datasource that OGR can, including [Shapefiles](http://en.wikipedia.org/wiki/Shapefile), [SpatiaLite](http://en.wikipedia.org/wiki/SpatiaLite) Databases and probably more.
 
 ## Obtaining Pre-Generated Vector-Tiles
-Generating the Tiles is a CPU-Intense activity. The tilegen-Script can run multiple Hours even on fast Computers. For this reason Personalwerk offers pre-generated Tiles at http://osm.personalwerk.de/example-vectiles/. The Files directly accessable in this Folder are *for Texting and Experimenting only*. If you want to use these Tiles in Production, download [http://osm.personalwerk.de/example-vectiles/example-vectiles.zip](all Tiles in a Zip) or generate them yourself. The Zip will expand to around 3 GB of Data.
+Generating the Tiles is a CPU-Intense activity. The tilegen-Script can run multiple Hours even on fast Computers. For this reason Personalwerk offers pre-generated Tiles at http://osm.personalwerk.de/example-vectiles/. The Files directly accessable in this Folder are *for Texting and Experimenting only*. If you want to use these Tiles in Production, download [all Tiles in a Zip](http://osm.personalwerk.de/example-vectiles/example-vectiles.zip) or generate them yourself. The Zip will expand to around 3 GB of Data. The Tiles in this zip are in the public domain.
 
-These Tiles contain Areas for the 247 countries in the world (Greenland as separate from Denmark) in 10m/50m resolution (as provided by [http://www.naturalearthdata.com/](naturalearthdata.com). The following Tags are attached to each Area and can be used in Events or Paint-Function:
+These Tiles contain Areas for the 247 countries in the world (Greenland as separate from Denmark) in 10m/50m resolution (as provided by [naturalearthdata.com](http://www.naturalearthdata.com/). The following Tags are attached to each Area and can be used in Events or Paint-Function:
 
 key       | value
 ----------|---------------------------------------------
@@ -27,7 +27,7 @@ subregion | Human-Readable (english) name of the Region this Country is in
 subunit   | identical (?) to admin
 
 ## Using the Leaflet-Plugin
-The tiles obtained in the previous section are consumed by the Leafelet-Plugin located at [layer/](layer). Take a look at [tilegen/](its README) to get API-Documentation and further explanations of its inner workings.
+The tiles obtained in the previous section are consumed by the Leafelet-Plugin located at [layer](layer/). Take a look at [its README](tilegen/) to get API-Documentation and further explanations of its inner workings.
 
 ## More Examples
-A usage-Example is provided in [examples/](examples).
+A usage-Example is provided in [examples](examples/).
