@@ -53,7 +53,7 @@ featureClick      | feature    | Called when the User clicks on a Feature. `feat
 ## Custom Paint-Function
 In the `paint`-Property a custom Paint-Function can be supplied. It will be called whenever a Part of an Feature needs to be Painted. It should be used to any custom behavior that exceeds the four Style-Properties mentioned above. The behaviour of the default paint-Function can be simulated  with a paint-Function like this:
 
-````
+````javascript
 var vectileLayer = new L.TileLayer.Canvas.InteractiveCountryVectorLayer({
 	minZoom: 2,
 	maxZoom: 9,
