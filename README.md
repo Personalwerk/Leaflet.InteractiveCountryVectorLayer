@@ -28,7 +28,7 @@ subregion | Human-Readable (english) name of the Region this Country is in
 subunit   | identical (?) to admin
 
 ## Using the Leaflet-Plugin
-The tiles obtained in the previous section are consumed by the Leafelet-Plugin located at [layer](layer/). Take a look at [its README](tilegen/) to get API-Documentation and further explanations of its inner workings.
+The tiles obtained in the previous section are consumed by the Leafelet-Plugin located at [src/](src/). Take a look at [its README](tilegen/) to get API-Documentation and further explanations of its inner workings.
 
 ## More Examples
 A usage-Example is provided in [examples](examples/).
