@@ -132,7 +132,7 @@ L.TileLayer.Canvas.InteractiveCountryVectorLayer = L.TileLayer.Canvas.extend({
 			return null;
 
 		var
-			pxIdx = tilePixel.x * 4 + tilePixel.y * hitmapImageData.width * 4,
+			pxIdx = Math.floor(tilePixel.x) * 4 + Math.floor(tilePixel.y) * hitmapImageData.width * 4,
 			polyIdx = layer._rgbintsToInt(hitmapImageData.data[pxIdx+0], hitmapImageData.data[pxIdx+1], hitmapImageData.data[pxIdx+2]),
 			polyPlausibility = hitmapImageData.data[pxIdx+3];
 
