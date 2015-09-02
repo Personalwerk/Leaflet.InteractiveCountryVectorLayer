@@ -108,7 +108,8 @@ L.TileLayer.Canvas.InteractiveCountryVectorLayer = L.TileLayer.Canvas.extend({
 			var hoverFeature = layer._findHoverFeature(e.layerPoint);
 
 			layer.fire('featureClick', {
-				'feature': hoverFeature
+				'feature': hoverFeature,
+				'latlng': e.latlng
 			});
 			map.fireEvent('mousemove', e);
 		});
