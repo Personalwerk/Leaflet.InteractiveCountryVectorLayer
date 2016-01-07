@@ -9,7 +9,7 @@ for size in 10m 50m; do
 	wget -c http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/$size/cultural/$fname
 	mkdir -p $dname
 	cd $dname
-	unzip -o ../$fname
+	unzip -o ../$dname.zip
 	cd ..
 done
 
