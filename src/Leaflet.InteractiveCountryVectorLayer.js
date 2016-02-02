@@ -16,8 +16,7 @@ L.TileLayer.Canvas.InteractiveCountryVectorLayer = L.TileLayer.Canvas.extend({
 
 	initialize: function(options) {
 		L.TileLayer.Canvas.prototype.initialize.call(this, L.extend(options, {
-			async: true,
-			noWrap: true
+			async: true
 		}));
 
 		this._vectileData = {};
@@ -148,11 +147,17 @@ L.TileLayer.Canvas.InteractiveCountryVectorLayer = L.TileLayer.Canvas.extend({
 		return this._vectileData[id].polys[polyIdx-1];
 	},
 
+	_buildTileUrl: function(tilePoint) {
+		var urlPoint = L.Util.extend({}, tilePoint);
+		this._adjustTilePoint(urlPoint);
+		return L.Util.template(this.options.url, urlPoint);
+	},
+
 	drawTile: function(canvas, tilePoint, zoom) {
 		var
 			layer = this,
 			id = layer._id(zoom, tilePoint),
-			url = L.Util.template(layer.options.url, {z: zoom, x: tilePoint.x, y: tilePoint.y});
+			url = layer._buildTileUrl(tilePoint);
 
 		$.get(url, function(buf) {
 			var
